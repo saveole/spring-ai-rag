@@ -1,0 +1,11 @@
+spring:
+  data:
+    redis:
+      uri: redis://default:123456@localhost:6379
+  ai:
+    vectorstore:
+      redis:
+        initialize-schema: true
+        index-name: custom-index
+        prefix: custom-prefix
+        batching-strategy: TOKEN_COUNT # Optional: Controls how documents are batched for embedding
