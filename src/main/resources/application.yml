@@ -2,6 +2,7 @@ spring:
   data:
     redis:
       uri: redis://default:123456@localhost:6379
+      password: 123456
   ai:
     vectorstore:
       redis:
@@ -9,3 +10,11 @@ spring:
         index-name: custom-index
         prefix: custom-prefix
         batching-strategy: TOKEN_COUNT # Optional: Controls how documents are batched for embedding
+    ollama:
+      embedding:
+        options:
+          model: "nomic-embed-text"
+          num-ctx: 8192
+      chat:
+        options:
+          model: "deepseek-r1"
