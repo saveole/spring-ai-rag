@@ -1,19 +1,20 @@
 spring:
-  data:
-    redis:
-      uri: redis://default:123456@localhost:6379
-      password: 123456
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
   ai:
     vectorstore:
-      redis:
-        initialize-schema: true
-        index-name: custom-index
-        prefix: custom-prefix
+      pgvector:
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: 1536
         batching-strategy: TOKEN_COUNT # Optional: Controls how documents are batched for embedding
+        max-document-batch-size: 10000 # Optional: Maximum number of documents per batch
     ollama:
       embedding:
         options:
-          model: "nomic-embed-text"
+          model: "viosay/conan-embedding-v1"
           num-ctx: 8192
       chat:
         options:
