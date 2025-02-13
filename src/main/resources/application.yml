@@ -3,19 +3,21 @@ spring:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: postgres
+    # docker run --name postgres -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres pgvector/pgvector:pg17
   ai:
     vectorstore:
       pgvector:
         index-type: HNSW
         distance-type: COSINE_DISTANCE
-        dimensions: 1536
+        dimensions: 1024
+        table-name: v_1024
         batching-strategy: TOKEN_COUNT # Optional: Controls how documents are batched for embedding
         max-document-batch-size: 10000 # Optional: Maximum number of documents per batch
     ollama:
       embedding:
         options:
-          model: "viosay/conan-embedding-v1"
-          num-ctx: 8192
+          # model: "viosay/conan-embedding-v1"
+          num-ctx: 512
       chat:
         options:
           model: "deepseek-r1"

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoadService {
 
-    @Value("classpath:pdf/日本蜡烛图技术.pdf")
+    @Value("classpath:pdf/Writing Maintainable Unit Tests-2020.pdf")
     private Resource pdfResource;
 
     @Autowired

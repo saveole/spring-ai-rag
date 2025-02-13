@@ -39,6 +39,9 @@ public class ChatService {
     }
 
     private List<Document> searchData(String query) {
-        return vectorStore.similaritySearch(query);
+        var documents = vectorStore.similaritySearch(query);
+        assert documents != null;
+        documents.forEach(System.out::println);
+        return documents;
     }
 }

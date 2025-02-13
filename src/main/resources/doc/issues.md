@@ -1,0 +1,4 @@
+- [ ] Embedding model's dimension setting diffs from the pgvector's dimension setting.
+- [ ] Ollama embed num-ctx setting error(not match with each model's).
+- [ ] Embedding model works not well with pdfs which are full of pictures.
+- [ ] ParagraphPdfDocumentReader or PagePdfDocumentReader ?
